@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+	    <title>Document</title>
+	    <link rel="stylesheet" href="<?php echo $_layoutParams["route_css"]; ?>/bootstrap.css">
+	    <link rel="stylesheet" href="<?php echo $_layoutParams["route_css"]?>/bootstrap-theme.min.css">
+	    <style type="text/css">
+	    	#login{
+	    		padding-top: 5%;
+	    	}
+
+	    	form{
+	    		width: 320px;
+	    	}
+
+	    	body{
+	    		background: #D8D8D8;
+	    		background-image: ;
+	    	}
+	    </style>
+	</head>
+<body>
+<div class="container">

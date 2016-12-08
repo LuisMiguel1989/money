@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-xs-12">
+        <blockquote>
+          <h3>Editar Usuario</h3>
+        </blockquote>
+    </div>
+</div>
+
+<form class="form-horizontal" action="<?php echo APP_URL."/users/edit"; ?>" method="POST">
+	<input type="hidden" name="id" value="<?php echo $user["id"]; ?>">
+    <div class="form-group">
+        <label class="col-xs-12" for="username">Username:</label>
+        <div class="col-xs-12">
+        <input type="text" class="form-control" name="username" id="username" value="<?php echo $user["username"]; ?>">
+        </div>
+    </div> 
+
+    <div class="form-group">
+        <label class="col-xs-12" for="newPassword">Password:</label>
+        <div class="col-xs-12">
+        <input type="txt" class="form-control" name="newPassword">
+        </div>
+    </div>  
+
+    <div class="form-group">
+        <label class="col-xs-12" for="type_id">Types</label>
+        <div class="col-xs-12">
+        <select class="form-control" name="type_id" id="type_id">
+            <?php
+            foreach ($types as $type):
+                if($type["types"]["id"]
+                   == $user["type_id"]) { ?>
+            <option selected value="<?php echo $type["types"]["id"];?>">
+            <?php echo $type ["types"] ["name"];?>
+            </option>
+                    
+                <?php }else{?>
+            <option value="<?php echo $type["types"]["id"];?>">
+            <?php echo $type ["types"] ["name"];?>
+            </option>
+           <?php }?>
+            
+            <?php endforeach;?>
+        </select>
+        </div>
+    </div>   
+
+    <div class="form-group">
+    <div class="col-xs-12">
+        <input class="btn btn-success" type="submit" value="Guardar">
+    </div>
+    </div>      
+    
+
+</form>

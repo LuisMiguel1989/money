@@ -1,0 +1,67 @@
+<div class="row">
+	<div class="col-xs-12">
+		<blockquote>
+		  <h3>Lista de tipos de usuarios</h3>
+		</blockquote>
+	</div>
+</div>
+
+<div class="row">
+	<ul class="nav nav-pills" role="tablist">
+	  
+	  <li role="presentation"><a href="#">Número de tipos de usuarios <span class="badge"><?php echo $typeCount; ?></span></a>
+	  </li>
+	  <li role="presentation" class="active">
+	  	<a class="btn btn-primary" href="types/add"><span class="glyphicon glyphicon-user"></span>  Agregar tipo</a>
+	  </li>
+	</ul>
+</div>
+<br>
+<br>
+
+<div class="row">
+<div class="col-xs-12">
+<div class="table-responsive">
+<?php if(!empty($types)): ?>
+<table class="table table-striped table-bordered table-hover">
+	<tr>
+		<th class="text-center">No</th>
+		<th class="text-center">Nombre</th>
+		<th class="text-center">Opciones</th>
+	</tr>
+	<?php
+		foreach ($types as $type): 
+	?>
+	<tr>
+		<td class="text-center"><?php echo $type["types"]["id"]; ?></td>
+		<td><?php echo $type["types"]["name"]; ?></td>
+		
+		<td class="text-center">
+		<span class="btn btn-default glyphicon glyphicon-edit">
+            <?php
+            echo $this->Html->link("Edit", array(
+                "controller"=>"types",
+                "method"=>"edit",
+                "arg"=>$type["types"]["id"]
+));?></span> |
+			<span class="btn btn-default glyphicon glyphicon-trash">
+            <?php
+           echo $this->Html->link("Delete", array(
+                "controller"=>"types",
+                "method"=>"delete",
+                "arg"=>$type["types"]["id"]
+            ));?>
+            </span>
+        </td>
+			<!--<a href="<?php echo APP_URL."/types/edit/".$type["types"]["id"]; ?>">Edit</a>-->
+			<!--<a href="<?php echo APP_URL."/types/delete/".$type["types"]["id"]; ?>">Delete</a>-->
+		</td>
+	</tr>
+	<?php 
+		endforeach; 
+	?>
+</table>
+<?php endif; ?>
+</div><!--cierre de tabla responsiva-->
+</div><!--cierre de col-xs-12-->
+</div><!--Cierre de row-->
